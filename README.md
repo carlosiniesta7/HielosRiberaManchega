@@ -1,6 +1,6 @@
-# i-spd
+# Hielos Ribera Manchega
 
-> Aplicacion para Solidarios para el Desarrollo
+> Hielos Ribera Manchega
 
 ## Build Setup
 
