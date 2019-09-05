@@ -1,10 +1,10 @@
-# i-spd
+# Hielos Ribera Manchega
 
-> Aplicacion para Solidarios para el Desarrollo
+> Hielos Ribera Manchega
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm install # Or yarn install
 
