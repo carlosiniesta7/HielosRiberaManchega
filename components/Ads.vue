@@ -2,7 +2,7 @@
   <v-flex text-xs-center>
     <div v-for="ad in avisos" :key="ad.adKey">
       <v-card class="mx-auto" max-width="700">
-        <v-toolbar dark color="green">
+        <v-toolbar dark color="blue">
           <v-flex class="title font-weight-regular">
             <big>{{ ad.title }}</big>
           </v-flex>
@@ -19,7 +19,7 @@
           <h3>{{ ad.body }}</h3>
           <div v-if="ad.url">
             <h3 class="text-xs-center">
-              <v-btn color="blue" :href="ad.url">
+              <v-btn color="green" :href="ad.url">
                 <v-icon>link</v-icon>&nbsp;ENLACE
               </v-btn>
             </h3>

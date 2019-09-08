@@ -2,7 +2,7 @@
   <div>
     <v-form ref="form" @submit.prevent="validateForm">
       <v-card class="mx-auto" max-width="750">
-        <v-toolbar dark color="green">
+        <v-toolbar dark color="blue">
           <v-text-field
             prepend-icon="title"
             v-model="aviso.title"

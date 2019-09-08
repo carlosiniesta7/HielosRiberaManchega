@@ -4,7 +4,7 @@
       <div class="Simple">
         <v-card class="mx-auto" max-width="750">
           <br />
-          <img src="/Tarjeta2.png" width="60%" />
+          <img src="/favicon.png" width="60%" />
           <br />
           <v-divider></v-divider>
           <br />

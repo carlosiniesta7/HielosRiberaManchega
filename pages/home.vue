@@ -1,11 +1,11 @@
 <template>
   <v-layout column justify-center align-center>
     <v-flex text-xs-center>
-      <h1>¡BIENVENIDO A LA APP DE HIELOS RIBERA MANCHEGA!</h1>
+      <h1>¡BIENVENIDO A LA APP DE HIELOS LA RIBERA MANCHEGA!</h1>
       <br />
       <v-card>
         <br />
-        <img src="Tarjeta2.png" width="75%" class="grey lighten-2" />
+        <img src="favicon.png" width="75%" class="grey lighten-2" />
         <v-card-text>
           <br />
           <hr />
@@ -26,13 +26,13 @@
           <hr />
           <hr />
           <br />
-          <h2 class="headline" align="center">ENLACES DE INTERÉS:</h2>
+          <!--<h2 class="headline" align="center">ENLACES DE INTERÉS:</h2>
           <br />
           <Links></Links>
           <br />
           <br />
           <hr />
-          <hr />
+          <hr />-->
         </v-card-text>
         <v-card-actions></v-card-actions>
       </v-card>

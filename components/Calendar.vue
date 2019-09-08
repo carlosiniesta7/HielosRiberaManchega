@@ -175,10 +175,6 @@
               </v-card-actions>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn class="text-xs-center" color="yellow" type="submit" @click="newLimpieza()">
-                  <v-icon>playlist_add</v-icon>&nbsp;LIMPIEZA
-                </v-btn>
-                <v-spacer></v-spacer>
                 <v-btn class="text-xs-center" color="red" type="submit" @click="cerrar()">
                   <v-icon>cancel</v-icon>&nbsp;Cerrar
                 </v-btn>
@@ -188,76 +184,7 @@
           </v-form>
         </v-flex>
       </v-dialog>
-      <!--POP-UP EVENTO LIMPIEZA -->
-      <v-dialog v-model="dialogL" max-width="450">
-        <v-flex text-xs-center>
-          <v-form ref="form" @submit.prevent="validateForm">
-            <v-card mx-auto>
-              <v-toolbar color="yellow">
-                <v-select
-                  prepend-icon="map"
-                  v-model="eventN.fullTitle"
-                  :rules="[rules.required]"
-                  @blur="autoFullTitle(eventN.fullTitle)"
-                  :items="['Princesa','Quevedo-Recoletos','Atocha', 'Preciados', 'Callao', 'Principe Pio']"
-                  label="Nombre de la ruta"
-                ></v-select>
-              </v-toolbar>
-              <br />
-              <v-card-text>
-                <v-textarea
-                  v-model="eventN.body"
-                  outline
-                  name="input-7-4"
-                  counter
-                  label="Descripcion del evento"
-                ></v-textarea>
-              </v-card-text>
-              <v-flex text-xs-center>
-                <big>
-                  <i>
-                    <big>({{startDateAux}})</big>
-                  </i>
-                </big>
-              </v-flex>
-              <v-textarea v-if="false" v-model="eventN.startDate"></v-textarea>
-              <v-textarea v-if="false" v-model="eventN.endDate"></v-textarea>
-              <v-text-field
-                :disabled="true"
-                v-model="eventN.startTime"
-                label="Selecciona la Hora de Inicio del Evento"
-                prepend-icon="access_time"
-                readonly
-                @click="dialogTime1=true"
-              ></v-text-field>
-
-              <v-text-field
-                :disabled="true"
-                v-model="eventN.endTime"
-                label="Seleccione la Hora de finalización del Evento"
-                prepend-icon="access_time"
-                readonly
-                @click="dialogTime2=true"
-              ></v-text-field>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn class="text-xs-center" color="blue darken-1" type="submit">
-                  <v-icon>add</v-icon>&nbsp;CREAR EVENTO
-                </v-btn>
-                <v-spacer></v-spacer>
-              </v-card-actions>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn class="text-xs-center" color="blue" type="submit" @click="cerrar()">
-                  <v-icon>undo</v-icon>&nbsp;VOLVER
-                </v-btn>
-                <v-spacer></v-spacer>
-              </v-card-actions>
-            </v-card>
-          </v-form>
-        </v-flex>
-      </v-dialog>
-      <div align="left">
+      <!--<div align="left">
         <i>
           <h3>Leyenda:</h3>
           <br />
@@ -291,7 +218,7 @@
             <h4>Cierre Cantarranas</h4>
           </v-layout>
         </i>
-      </div>
+      </div>-->
     </v-layout>
   </v-container>
 </template>

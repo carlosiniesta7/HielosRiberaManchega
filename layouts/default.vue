@@ -76,7 +76,7 @@ export default {
         },
         { title: "--------  CLIENTES -------", rol: 2 },
         {
-          icon: "playlist_add",
+          icon: "person_add",
           title: "Nuevo Cliente",
           to: "/newInform",
           rol: 2
@@ -107,7 +107,7 @@ export default {
           rol: 3
         },
         { icon: "map", title: "Mapa de PsH", to: "/map", rol: 3 },*/
-        { title: "-------- ADMINISTRADORES ------", rol: 4 },
+        { title: "-------- ADMINISTRADORES ------", rol: 3 },
         {
           icon: "add_to_home_screen",
           title: "Añadir Novedad",

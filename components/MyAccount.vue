@@ -3,10 +3,10 @@
     <v-flex text-xs-center>
       <v-card>
         <div v-if="userRol.rol !== 'Anonimo'">
-          <br>
+          <br />
           <h2>Cambiar Nombre para mostrar</h2>
         </div>
-        <br>
+        <br />
         <div align="center">
           <v-flex xs10 md10>
             <v-toolbar v-if="userRol.rol !== 'Anonimo'">
@@ -15,7 +15,7 @@
             <v-toolbar v-else>
               <v-text-field prepend-icon="person" :disabled="true" :label="user.displayName"></v-text-field>
             </v-toolbar>
-            <br>
+            <br />
             <v-tooltip v-if="userRol.rol !== 'Anonimo'" bottom>
               <v-btn @click="changeName" slot="activator" color="blue" dark>
                 <v-icon>update</v-icon>&nbsp;Actualizar Nombre
@@ -27,16 +27,16 @@
         <div v-if="uid">
           <v-text-field v-show="false" :value="user.uid" v-model="uid"></v-text-field>
         </div>
-        <br>
+        <br />
         <div v-if="false">
           <v-divider></v-divider>
           <ReqPermission></ReqPermission>
-          <br>
+          <br />
         </div>
         <v-divider></v-divider>
-        <br>
+        <br />
         <h2>Datos de mi Cuenta:</h2>
-        <br>
+        <br />
         <div align="left">
           <div align="center">
             <div v-if="userRol.rol !== 'Anonimo'">
@@ -46,8 +46,8 @@
                 </i>
                 <big>{{ user.email }}</big>
               </h3>
-              <br>
-
+              <br />
+              <!--
               <h3>
                 <i>
                   <v-icon>map</v-icon>&nbsp;Ruta a la que peteneces:
@@ -61,7 +61,7 @@
                 </i>
                 <big>{{ userRol.routeDay }}</big>
               </h3>
-              <br>
+              <br>-->
               <h3>
                 <i>
                   <v-icon>person</v-icon>&nbsp;Rol dentro de la Organización:
@@ -84,7 +84,7 @@
                   </i>
                   <big>{{ user.email }}</big>
                 </h3>
-                <br>
+                <br />
                 <h3>
                   <i>
                     <v-icon>info</v-icon>&nbsp;Estamos revisando su petición de Alta. En breve tendrá rol y ruta asociada.&nbsp;
@@ -92,8 +92,8 @@
                 </h3>
               </div>
             </div>
-            <br>
-            <br>
+            <br />
+            <br />
             <div v-if="userRol.rol !== 'Anonimo'" class="text-xs-right">
               <small>
                 <i>*Si desea editar estos datos, contacte con los Administradores&nbsp;&nbsp;</i>
@@ -104,7 +104,7 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-flex text-xs-center>
-            <br>
+            <br />
             <v-tooltip bottom v-if="userRol.rol !== 'Anonimo'">
               <v-btn @click="deleteAccount" slot="activator" color="red" dark>
                 <v-icon>delete</v-icon>&nbsp;Borrar cuenta
@@ -124,8 +124,8 @@
                 </v-btn>
                 <span>Ir a enviar peticion de Alta</span>
               </v-tooltip>
-              <br>
-              <br>
+              <br />
+              <br />
               <v-tooltip bottom>
                 <v-btn @click="exit" slot="activator" color="red" dark>
                   <v-icon>logout</v-icon>&nbsp;Salir
@@ -135,7 +135,7 @@
             </div>
           </v-flex>
         </v-card-actions>
-        <br>
+        <br />
       </v-card>
     </v-flex>
   </v-layout>
