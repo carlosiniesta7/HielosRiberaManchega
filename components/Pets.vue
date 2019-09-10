@@ -8,11 +8,11 @@
         type="search"
       ></v-text-field>
     </v-toolbar>
-    <br>
+    <br />
     <v-layout align-center justify-center row wrap>
       <h2 v-if="notFound">
-        <br>
-        <br>
+        <br />
+        <br />
         <big>
           <i>'No hay peticiones de Alta en este momento'</i>
         </big>
@@ -20,10 +20,10 @@
       <div align="center" v-for="pet in filtrarPeticiones" :key="pet.petKey">
         <v-flex xs12 md10>
           <v-card>
-            <v-toolbar dark color="green">
+            <v-toolbar dark color="blue">
               <h3>
                 Petición de Alta de:
-                <br>
+                <br />
                 <big>
                   <big>{{ pet.name }}</big>
                 </big>
@@ -34,16 +34,6 @@
                 <h3>
                   <v-icon>mail</v-icon>&nbsp;Email:
                   <big>{{ pet.email }}</big>
-                </h3>
-                <v-divider></v-divider>
-                <h3>
-                  <v-icon>map</v-icon>&nbsp;Ruta:
-                  <big>{{ pet.routeName }}</big>
-                </h3>
-                <v-divider></v-divider>
-                <h3>
-                  <v-icon>event</v-icon>&nbsp;Dia:
-                  <big>{{ pet.routeDay }}</big>
                 </h3>
                 <v-divider></v-divider>
                 <h3>
@@ -62,7 +52,7 @@
             </v-btn>
           </v-card>
         </v-flex>
-        <br>
+        <br />
       </div>
     </v-layout>
   </div>

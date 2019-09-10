@@ -29,14 +29,14 @@
     </v-tooltip>-->
 
     <v-tooltip bottom>
-      <v-btn slot="activator" fab dark large color="blue" nuxt to="/newInform">
+      <v-btn slot="activator" fab dark large color="blue" nuxt to="/newClient">
         <v-icon dark>person_add</v-icon>
       </v-btn>
       <span>Añadir nuevo Cliente un nuevo Resumen</span>
     </v-tooltip>
 
     <v-tooltip bottom>
-      <v-btn slot="activator" fab dark large color="blue" nuxt to="/informs">
+      <v-btn slot="activator" fab dark large color="blue" nuxt to="/clients">
         <v-icon dark>group</v-icon>
       </v-btn>
       <span>Consultar Cliente</span>

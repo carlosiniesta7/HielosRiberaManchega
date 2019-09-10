@@ -1,10 +1,10 @@
 <template>
   <div>
     <!--FILTROS-->
-    <v-btn v-if="!able" dark color="blue" @click="habilitar()">
+    <v-btn v-if="!able" dark color="yellow" @click="habilitar()">
       <v-icon>filter</v-icon>&nbsp;FILTROS
     </v-btn>
-    <br>
+    <br />
     <div v-if="able">
       <v-toolbar>
         <v-select
@@ -24,7 +24,7 @@
           <v-icon dark>search</v-icon>
         </v-btn>
       </v-toolbar>
-      <br>
+      <br />
       <v-toolbar>
         <v-select
           prepend-icon="map"
@@ -43,7 +43,7 @@
           <v-icon dark>search</v-icon>
         </v-btn>
       </v-toolbar>
-      <br>
+      <br />
       <v-toolbar>
         <v-select
           prepend-icon="person"
@@ -73,7 +73,7 @@
           <v-icon dark>search</v-icon>
         </v-btn>
       </v-toolbar>
-      <br>
+      <br />
       <v-toolbar>
         <v-select
           @blur="filtrarUsuariosPorRol()"
@@ -92,18 +92,18 @@
           <v-icon dark>search</v-icon>
         </v-btn>
       </v-toolbar>
-      <br>
+      <br />
       <v-btn v-if="able" dark color="blue" @click="habilitar()">
         <v-icon>filter</v-icon>&nbsp;OCULTAR FILTROS
       </v-btn>
       <v-btn v-if="able" dark color="red" @click="ultimosUsuarios(10)">
         <v-icon>delete</v-icon>&nbsp;BORRAR FILTROS
       </v-btn>
-      <br>
+      <br />
       <v-divider></v-divider>
     </div>
-    <br>
-    <br>
+    <br />
+    <br />
     <!--Buscador por Nombre de Usuario-->
     <v-toolbar>
       <v-text-field
@@ -113,7 +113,7 @@
         type="search"
       ></v-text-field>
     </v-toolbar>
-    <br>
+    <br />
     <!--USUARIOS-->
     <h2 v-if="notFound">
       <big>
@@ -124,7 +124,7 @@
       <div v-for="usu in filtrarUsers" :key="usu.usuKey">
         <v-flex xs12 md10>
           <v-card>
-            <v-toolbar dark color="green">
+            <v-toolbar dark color="blue">
               <h2>
                 <big>{{ usu.name }}</big>
               </h2>
@@ -136,20 +136,6 @@
                     <v-icon>mail</v-icon>&nbsp;Email:
                   </i>
                   <big>{{ usu.email }}</big>
-                </h3>
-                <v-divider></v-divider>
-                <h3>
-                  <i>
-                    <v-icon>map</v-icon>&nbsp;Ruta:
-                  </i>
-                  <big>{{ usu.routeName }}</big>
-                </h3>
-                <v-divider></v-divider>
-                <h3>
-                  <i>
-                    <v-icon>event</v-icon>&nbsp;Dia:
-                  </i>
-                  <big>{{ usu.routeDay }}</big>
                 </h3>
                 <v-divider></v-divider>
                 <h3>
@@ -169,7 +155,7 @@
             </v-btn>
           </v-card>
         </v-flex>
-        <br>
+        <br />
       </div>
     </v-layout>
   </div>

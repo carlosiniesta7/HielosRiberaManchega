@@ -2,7 +2,7 @@
   <v-layout>
     <v-flex text-xs-center>
       <v-app id="inspire">
-        <v-tabs centered color="green" dark icons-and-text>
+        <v-tabs centered color="blue" dark icons-and-text>
           <v-tabs-slider color="yellow"></v-tabs-slider>
 
           <v-tab href="#tab-1" @click="flat=true">
@@ -16,17 +16,17 @@
           </v-tab>
 
           <v-tab-item v-for="i in 2" :key="i" :value="'tab-' + i">
-            <br>
+            <br />
             <div v-if="flat">
-              <br>
+              <br />
               <h1 class="headline">PETICIONES DE ALTA:</h1>
-              <br>
+              <br />
               <Pets></Pets>
             </div>
             <div v-else>
-              <br>
+              <br />
               <h1 class="headline">USUARIOS DE LA APLICACIÓN:</h1>
-              <br>
+              <br />
               <Users></Users>
             </div>
           </v-tab-item>

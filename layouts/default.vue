@@ -78,13 +78,13 @@ export default {
         {
           icon: "person_add",
           title: "Nuevo Cliente",
-          to: "/newInform",
+          to: "/newClient",
           rol: 2
         },
         {
           icon: "group",
           title: "Muro de Clientes",
-          to: "/informs",
+          to: "/clients",
           rol: 2
         },
         /*{ title: "-------- COORDINADORES ------", rol: 3 },

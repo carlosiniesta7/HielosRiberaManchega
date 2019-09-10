@@ -1,20 +1,20 @@
 <template>
   <v-layout>
     <v-flex text-xs-center>
-      <h1>NUEVO INFORME DE RUTA</h1>
-      <NewInform></NewInform>
+      <h1>NUEVO CLIENTE</h1>
+      <NewClient></NewClient>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import NewInform from "~/components/NewInform.vue";
+import NewClient from "~/components/NewClient.vue";
 
 export default {
   components: {
-    NewInform
+    NewClient
   },
 
-  middleware: "vol"
+  middleware: "repartidor"
 };
 </script>
