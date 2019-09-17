@@ -96,7 +96,7 @@
       </div>
       <br />
       <br />
-      <!--Buscador de Informes por palabra en el Resumen-->
+      <!--Buscador de Clientes por NIF-->
       <v-toolbar>
         <v-text-field
           prepend-icon="search"
@@ -107,13 +107,15 @@
       </v-toolbar>
       <br />
       <br />
-      <!--INFORMES DE RUTA-->
-      <h2 v-if="notFound">
-        <big>
-          <i>'Lo sentimos, no se han encontrado Clientes con esas caracteristicas'</i>
-        </big>
-      </h2>
-      <div v-for="client in filtrarClientes" :key="client.clientKey">
+      <!--CLIENTES-->
+      <div v-if="notFound">
+        <h2>
+          <big>
+            <i>'Lo sentimos, no se han encontrado Clientes con esas caracteristicas'</i>
+          </big>
+        </h2>
+      </div>
+      <div v-else v-for="client in filtrarClientes" :key="client.clientKey">
         <v-card class="mx-auto" max-width="750">
           <v-toolbar dark color="blue">
             <v-flex class="title font-weight-regular">
@@ -263,7 +265,7 @@ export default {
           .ref("/clientes")
           .orderByChild("pagoPendiente")
           .limitToLast(n)
-          .isEqual("")
+          .equalTo("")
           .on("value", snapshot => this.cargarClientes(snapshot.val()));
       }
     },
