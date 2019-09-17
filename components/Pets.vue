@@ -22,8 +22,6 @@
           <v-card>
             <v-toolbar dark color="blue">
               <h3>
-                Petición de Alta de:
-                <br />
                 <big>
                   <big>{{ pet.name }}</big>
                 </big>
@@ -101,8 +99,6 @@ export default {
             petKey: i,
             name: objPet[i].name,
             email: objPet[i].email,
-            routeDay: objPet[i].routeDay,
-            routeName: objPet[i].routeName,
             rol: objPet[i].rol
           });
         }
@@ -138,10 +134,7 @@ export default {
         .set({
           email: pet.email,
           name: pet.name,
-          rol: pet.rol,
-          routeDay: pet.routeDay,
-          routeName: pet.routeName,
-          routeName_Day: pet.routeName + "_" + pet.routeDay
+          rol: pet.rol
         })
         .then(data => {
           this.deletePeticion(pet);

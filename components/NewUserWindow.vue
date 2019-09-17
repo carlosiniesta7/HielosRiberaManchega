@@ -16,7 +16,7 @@
           <div v-if="onboarding==1">
             <h1>¿Eres parte de la empresa?</h1>
             <br />
-            <v-btn color="blue" to="/home">
+            <v-btn color="red" to="/">
               <v-icon>sentiment_dissatisfied</v-icon>&nbsp;No
             </v-btn>
             <v-btn color="green" @click="next">
@@ -44,7 +44,7 @@
     <br />
     <div class="botones">
       <v-card-actions class="justify-space-between">
-        <v-btn :disabled="onboarding==0" color="red" @click="prev">
+        <v-btn :disabled="onboarding==0" color="lightblue" @click="prev">
           <v-icon>mdi-chevron-left</v-icon>Atrás
         </v-btn>
         <v-btn :disabled="onboarding!==0" color="green" @click="next">

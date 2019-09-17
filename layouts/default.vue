@@ -139,6 +139,10 @@ export default {
       this.nRol = 4;
       this.l = 0;
     }
+    if (this.$store.getters.getRol === "Anonimo") {
+      this.nRol = 2;
+      this.l = 6;
+    }
 
     if (this.l != 0) {
       this.items = this.items.reverse();

@@ -11,9 +11,6 @@
           <hr />
           <hr />
           <br />
-          <div>
-            <h3 class="headline" align="center">DESDE ESTA APLICACIÓN PUEDE:</h3>
-          </div>
           <Bottoms></Bottoms>
           <br />
           <hr />

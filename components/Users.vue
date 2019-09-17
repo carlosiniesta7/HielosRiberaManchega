@@ -8,79 +8,11 @@
     <div v-if="able">
       <v-toolbar>
         <v-select
-          prepend-icon="person"
-          :items="['Princesa','Quevedo-Recoletos','Atocha', 'Preciados', 'Callao', 'Principe Pio']"
-          v-model="sRoute"
-          label="Filtrar por Ruta"
-          @blur="filtrarUsuariosPorRuta()"
-        ></v-select>
-        <v-btn
-          v-if="this.sRoute !== null"
-          @click="filtrarUsuariosPorRuta(), able=false"
-          dark
-          icon
-          color="indigo"
-        >
-          <v-icon dark>search</v-icon>
-        </v-btn>
-      </v-toolbar>
-      <br />
-      <v-toolbar>
-        <v-select
-          prepend-icon="map"
-          :items="['Lunes','Martes','Miercoles','Jueves']"
-          v-model="sDay"
-          label="Filtrar por Dia de la Ruta"
-          @blur="filtrarUsuariosPorDia()"
-        ></v-select>
-        <v-btn
-          v-if="this.sDay !== null"
-          @click="filtrarUsuariosPorDia(), able=false"
-          dark
-          icon
-          color="teal"
-        >
-          <v-icon dark>search</v-icon>
-        </v-btn>
-      </v-toolbar>
-      <br />
-      <v-toolbar>
-        <v-select
-          prepend-icon="person"
-          :items="['Princesa','Quevedo-Recoletos','Atocha', 'Preciados', 'Callao', 'Principe Pio']"
-          v-model="ssRoute"
-          label="Filtrar por Ruta"
-          @blur="filtrarUsuariosPorRuta_Dia()"
-        ></v-select>
-        <v-spacer></v-spacer>&nbsp;&nbsp;&nbsp;&nbsp;
-        <v-icon>add</v-icon>&nbsp;&nbsp;&nbsp;&nbsp;
-        <v-spacer></v-spacer>
-        <v-select
-          prepend-icon="map"
-          :items="['Lunes','Martes','Miercoles','Jueves']"
-          v-model="ssDay"
-          label="Filtrar por Dia de la Ruta"
-          @blur="filtrarUsuariosPorRuta_Dia()"
-        ></v-select>
-
-        <v-btn
-          v-if="this.ssRoute !== null && this.ssDay !== null"
-          @click="filtrarUsuariosPorRuta_Dia(), able=false"
-          dark
-          icon
-          color="teal"
-        >
-          <v-icon dark>search</v-icon>
-        </v-btn>
-      </v-toolbar>
-      <br />
-      <v-toolbar>
-        <v-select
           @blur="filtrarUsuariosPorRol()"
           v-model="sRol"
           prepend-icon="person"
           label="Filtrar por rol"
-          :items="['Voluntario','Coordinador','Administrador']"
+          :items="['Repartidor','Administrador']"
         ></v-select>
         <v-btn
           v-if="this.sRol !== null"
@@ -170,11 +102,7 @@ export default {
   data() {
     return {
       usuarios: [],
-      sRoute: null,
-      sDay: null,
       sRol: null,
-      ssRoute: null,
-      ssDay: null,
       able: false,
       n: 0,
       notFound: false,
@@ -203,11 +131,7 @@ export default {
   },
   methods: {
     ultimosUsuarios(n) {
-      this.sDay = null;
       this.sRol = null;
-      this.sRoute = null;
-      this.ssDay = null;
-      this.ssRoute = null;
       firebase
         .database()
         .ref("/usuarios")
@@ -215,55 +139,7 @@ export default {
         .limitToLast(n)
         .on("value", snapshot => this.cargarUsuarios(snapshot.val()));
     },
-    filtrarUsuariosPorRuta() {
-      this.sDay = null;
-      this.sRol = null;
-      this.ssDay = null;
-      this.ssRoute = null;
-      if (this.sRoute != null) {
-        firebase
-          .database()
-          .ref("/usuarios")
-          .orderByChild("routeName")
-          .limitToLast(10)
-          .equalTo(this.sRoute)
-          .on("value", snapshot => this.cargarUsuarios(snapshot.val()));
-      }
-    },
-    filtrarUsuariosPorDia() {
-      this.sRoute = null;
-      this.sRol = null;
-      this.ssDay = null;
-      this.ssRoute = null;
-      if (this.sDay != null) {
-        firebase
-          .database()
-          .ref("/usuarios")
-          .orderByChild("routeDay")
-          .limitToLast(10)
-          .equalTo(this.sDay)
-          .on("value", snapshot => this.cargarUsuarios(snapshot.val()));
-      }
-    },
-    filtrarUsuariosPorRuta_Dia() {
-      this.sRoute = null;
-      this.sRol = null;
-      this.sDay = null;
-      if (this.ssRoute !== null && this.ssDay !== null) {
-        firebase
-          .database()
-          .ref("/usuarios")
-          .orderByChild("routeName_Day")
-          .limitToLast(10)
-          .equalTo(this.ssRoute + "_" + this.ssDay)
-          .on("value", snapshot => this.cargarUsuarios(snapshot.val()));
-      }
-    },
     filtrarUsuariosPorRol() {
-      this.sRoute = null;
-      this.sDay = null;
-      this.ssDay = null;
-      this.ssRoute = null;
       if (this.sRol != null) {
         firebase
           .database()
@@ -283,8 +159,6 @@ export default {
             usuKey: i,
             name: objUsu[i].name,
             email: objUsu[i].email,
-            routeDay: objUsu[i].routeDay,
-            routeName: objUsu[i].routeName,
             rol: objUsu[i].rol
           });
         }

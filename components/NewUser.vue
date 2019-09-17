@@ -94,9 +94,7 @@ export default {
       (this.peticion = {
         email: this.user.email,
         name: this.user.displayName,
-        rol: "",
-        routeDay: "",
-        routeName: ""
+        rol: ""
       }),
         (this.able = !this.able);
     },
@@ -118,10 +116,7 @@ export default {
         .set({
           email: this.peticion.email,
           name: this.peticion.name,
-          rol: this.peticion.rol,
-          routeDay: this.peticion.routeDay,
-          routeName: this.peticion.routeName,
-          routeName_Day: this.peticion.routeName + "_" + this.peticion.routeDay
+          rol: this.peticion.rol
         })
         .then(data => {
           this.peticion = [];

@@ -4,7 +4,7 @@
       <img width="25%" src="/favicon.png" />
       <h1>CLIENTES:</h1>
       <br />
-      <!--<Clients></Clients>-->
+      <Clients></Clients>
     </v-flex>
   </v-layout>
 </template>
@@ -19,13 +19,12 @@ ol {
 </style>
 
 <script>
-//import Clients from "~/components/Clients.vue";
+import Clients from "~/components/Clients.vue";
 
 export default {
-  //components: {
-  //Clients
-  //},
-
+  components: {
+    Clients
+  },
   middleware: "repartidor"
 };
 </script>

@@ -73,7 +73,7 @@
               <div v-if="!pet">
                 <h3>
                   <i>
-                    <v-icon>info</v-icon>&nbsp;No estás dado de alta en la App como voluntario, por lo que no tienes rol ni ruta asociada.&nbsp;
+                    <v-icon>info</v-icon>&nbsp;No estás dado de alta en la Aplicación por lo que no tienes perfil ni acccesos.&nbsp;
                   </i>
                 </h3>
               </div>
@@ -87,7 +87,7 @@
                 <br />
                 <h3>
                   <i>
-                    <v-icon>info</v-icon>&nbsp;Estamos revisando su petición de Alta. En breve tendrá rol y ruta asociada.&nbsp;
+                    <v-icon>info</v-icon>&nbsp;Estamos revisando su petición de Alta. En breve, tendrá los accesos habilitados&nbsp;
                   </i>
                 </h3>
               </div>

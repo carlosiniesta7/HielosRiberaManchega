@@ -2,7 +2,7 @@
   <v-layout>
     <v-flex text-xs-center>
       <br />
-      <v-form ref="form" @submit.prevent="validateForm">
+      <v-form ref="form" @submit.prevent="editClient">
         <v-card class="mx-auto" max-width="750">
           <v-toolbar dark color="blue">
             <v-text-field
@@ -46,7 +46,7 @@
             <v-text-field
               prepend-icon="location_city"
               v-model="client.poblacion"
-              label="Población"
+              label="Población del Cliente"
               :rules="[rules.required]"
               counter
               maxlength="40"
@@ -54,7 +54,7 @@
             <v-text-field
               prepend-icon="map"
               v-model="client.provincia"
-              label="Provincia"
+              label="Provincia del Cliente"
               :rules="[rules.required]"
               maxlength="30"
             ></v-text-field>
@@ -62,7 +62,7 @@
               prepend-icon="location_searching"
               number
               v-model="client.codigoPostal"
-              label="Codigo Postal"
+              label="Codigo Postal del Cliente"
               :rules="[rules.required]"
               maxlength="10"
             ></v-text-field>
@@ -201,9 +201,9 @@
           <br />
           <v-tooltip bottom>
             <v-btn type="submit" slot="activator" color="green" dark>
-              <v-icon>add</v-icon>&nbsp;&nbsp;Añadir
+              <v-icon>update</v-icon>&nbsp;&nbsp;Aclualizar
             </v-btn>
-            <span>Añadir cliente</span>
+            <span>Actualizar cliente</span>
           </v-tooltip>
           <br />
         </v-card>
@@ -212,20 +212,14 @@
   </v-layout>
 </template>
 
-<style scoped>
-#datos {
-  padding: 0px;
-  margin-left: 3%;
-  margin-right: 3%;
-}
-</style>
-
 <script>
-import { mapState } from "vuex";
 import firebase from "firebase/app";
-import "firebase/database";
+import "firebase/auth";
+import { mapState } from "vuex";
 
 export default {
+  name: "EditClient",
+  middleware: "repartidor",
   data() {
     return {
       client: {
@@ -237,7 +231,7 @@ export default {
         poblacion: "",
         provincia: "",
         telefono1: "",
-        telefono2: null,
+        telefono2: "",
         fax: "",
         email: "",
         web: "",
@@ -252,74 +246,57 @@ export default {
         autor: "",
         fecha: ""
       },
-      userUid: null,
       rules: { required: value => !!value || "Requerido" },
-      able: false
+      id: ""
     };
   },
-  created() {
-    this.precargar();
-    this.userUid = firebase.auth().currentUser.uid;
-  },
-  computed: {
-    ...mapState(["userRol"])
+  created: async function() {
+    this.id = `${this.$route.params.id}`;
+    firebase
+      .database()
+      .ref("clientes/" + this.id)
+      .once("value", snapshot => this.cargarCliente(snapshot.val()));
   },
   methods: {
-    precargar() {
-      this.client.autor = this.userRol.name;
-      this.client.fecha = new Date().toLocaleDateString();
-      this.able = !this.able;
+    cargarCliente(cli) {
+      this.client = cli;
     },
-    copiarDatosFiscales() {
-      this.client.nombreFiscal = this.client.nombreComercial;
-      this.client.domicilioFiscal = this.client.direccion;
-      this.client.poblacionFiscal = this.client.poblacion;
-      this.client.telefonoFiscal = this.client.telefono1;
-      this.client.codigoPostalFiscal = this.client.codigoPostal;
-    },
-    validateForm() {
+    editClient: function() {
       if (this.$refs.form.validate()) {
-        this.nuevoCliente();
+        firebase
+          .database()
+          .ref("clientes/" + this.id)
+          .update({
+            nombre: this.client.nombre,
+            codigo: this.client.codigo,
+            codigoPostal: this.client.codigoPostal,
+            nombreComercial: this.client.nombreComercial,
+            direccion: this.client.direccion,
+            poblacion: this.client.poblacion,
+            provincia: this.client.provincia,
+            telefono1: this.client.telefono1,
+            telefono2: this.client.telefono2,
+            fax: this.client.fax,
+            email: this.client.email,
+            web: this.client.web,
+            nif: this.client.nif,
+            nombreFiscal: this.client.nombreFiscal,
+            domicilioFiscal: this.client.domicilioFiscal,
+            codigoPostalFiscal: this.client.codigoPostalFiscal,
+            poblacionFiscal: this.client.poblacionFiscal,
+            telefonoFiscal: this.client.telefonoFiscal,
+            pagoPendiente: this.client.pagoPendiente,
+            observaciones: this.client.observaciones,
+            autor: this.client.autor,
+            fecha: this.client.fecha,
+            uidAutor: firebase.auth().currentUser.uid
+          })
+          .then(data => {
+            this.client = [];
+            this.$router.replace("/clients");
+          });
       }
-    },
-    nuevoCliente() {
-      firebase
-        .database()
-        .ref("/clientes")
-        .push({
-          nombre: this.client.nombre,
-          codigo: this.client.codigo,
-          codigoPostal: this.client.codigoPostal,
-          nombreComercial: this.client.nombreComercial,
-          direccion: this.client.direccion,
-          poblacion: this.client.poblacion,
-          provincia: this.client.provincia,
-          telefono1: this.client.telefono1,
-          telefono2: this.client.telefono2,
-          fax: this.client.fax,
-          email: this.client.email,
-          web: this.client.web,
-          nif: this.client.nif,
-          nombreFiscal: this.client.nombreFiscal,
-          domicilioFiscal: this.client.domicilioFiscal,
-          codigoPostalFiscal: this.client.codigoPostalFiscal,
-          poblacionFiscal: this.client.poblacionFiscal,
-          telefonoFiscal: this.client.telefonoFiscal,
-          pagoPendiente: this.client.pagoPendiente,
-          observaciones: this.client.observaciones,
-          autor: this.client.autor,
-          fecha: this.client.fecha,
-          uidAutor: firebase.auth().currentUser.uid
-        })
-        .then(data => {
-          this.client = [];
-          this.$router.replace("/clients");
-        });
     }
   }
 };
 </script>
-
-
-
-

@@ -9,8 +9,8 @@
           <v-divider></v-divider>
           <br />
           <h2 class="inf">
-            &nbsp;Aplicación destinada al programa de personas sin hogar,&nbsp;
-            <br />&nbsp;para acceder es necesario que se identifique:
+            &nbsp;Aplicación de Hielos La Ribera Manchega,&nbsp;
+            <br />&nbsp;para acceder debe identificarse primero:
           </h2>
           <br />
           <!--Bóton de Google-->

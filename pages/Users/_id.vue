@@ -2,7 +2,7 @@
   <div class="container">
     <v-form ref="form" @submit.prevent="editUsuario">
       <v-card class="mx-auto">
-        <v-toolbar dark color="green">
+        <v-toolbar dark color="blue">
           <v-flex align-content-space-around>
             <big>
               <v-text-field
@@ -14,7 +14,7 @@
             </big>
           </v-flex>
         </v-toolbar>
-        <br>
+        <br />
         <v-flex align-content-space-around>
           <v-text-field
             prepend-icon="email"
@@ -24,37 +24,20 @@
           ></v-text-field>
         </v-flex>
         <v-divider></v-divider>
-        <br>
-        <v-flex align-content-space-around>
-          <v-select
-            prepend-icon="map"
-            v-model="userEdit.routeName"
-            :rules="[rules.required]"
-            :items="['Princesa','Quevedo-Recoletos','Atocha', 'Preciados', 'Callao', 'Principe Pio']"
-            label="Nombre de la Ruta a la que pertenece"
-          ></v-select>
-          <v-select
-            prepend-icon="event"
-            v-model="userEdit.routeDay"
-            :rules="[rules.required]"
-            :items="['Lunes','Martes','Miercoles','Jueves']"
-            label="Dia en el que hace la ruta"
-          ></v-select>
-        </v-flex>
-        <br>
+        <br />
         <v-toolbar color="yellow">
-          <br>
+          <br />
           <v-flex align-content-space-around>
             <v-select
               prepend-icon="list"
               v-model="userEdit.rol"
               :rules="[rules.required]"
-              :items="['Publico','Voluntario','Coordinador','Administrador']"
+              :items="['Repartidor','Administrador']"
               label="Rol dentro de la organización"
             ></v-select>
           </v-flex>
         </v-toolbar>
-        <br>
+        <br />
         <v-tooltip bottom>
           <v-btn type="submit" slot="activator" color="green" dark>
             <v-icon>edit</v-icon>&nbsp;EDITAR
@@ -62,12 +45,12 @@
           <span>Editar Usuario</span>
         </v-tooltip>
         <v-tooltip bottom>
-          <v-btn to="/adminUsers" slot="activator" color="blue" dark>
+          <v-btn to="/adminUsers" slot="activator" color="red" dark>
             <v-icon>refresh</v-icon>&nbsp;VOLVER
           </v-btn>
           <span>Volver a Administracion de Usuarios</span>
         </v-tooltip>
-        <br>
+        <br />
       </v-card>
     </v-form>
   </div>
@@ -107,11 +90,7 @@ export default {
           .update({
             email: this.userEdit.email,
             name: this.userEdit.name,
-            rol: this.userEdit.rol,
-            routeDay: this.userEdit.routeDay,
-            routeName: this.userEdit.routeName,
-            routeName_Day:
-              this.userEdit.routeName + "_" + this.userEdit.routeDay
+            rol: this.userEdit.rol
           })
           .then(data => {
             this.userEdit = [];
