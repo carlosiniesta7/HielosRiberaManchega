@@ -128,7 +128,7 @@
         <big>
           <v-icon>info</v-icon>&nbsp;Pagos Pendientes:
           <b>
-            <big>{{client.pagosPendientes}}</big>
+            <big>{{client.pagoPendiente}}</big>
           </b>
         </big>
         <br />&nbsp;

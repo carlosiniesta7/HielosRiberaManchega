@@ -168,7 +168,7 @@
           <div id="datos">
             <v-text-field
               prepend-icon="info"
-              v-model="client.pagosPendientes"
+              v-model="client.pagoPendiente"
               label="Pagos pendientes"
               maxlength="50"
             ></v-text-field>
